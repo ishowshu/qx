@@ -1,0 +1,56 @@
+#!name = 哔哩哔哩
+#!desc = B站去广告(维护Rucu6弃用qx后的版本)，qx已知最后能用的版本是8.44.0
+#!author = kokoryh, Rucu6, 树先生
+
+hostname = *.bilibili.com, grpc.biliapi.net
+
+host, app.biliapi.net, reject
+host, api.biliapi.net, reject
+host, app.biliapi.com, reject
+host, api.biliapi.com, reject
+host, line3-h5-mobile-api.biligame.com, reject
+host-suffix, chat.bilibili.com, reject
+
+#^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH url reject-dict
+#^http:\/\/upos-sz-static\.bilivideo\.com\/ssaxcode\/\w{2}\/\w{2}\/\w{32}-1-SPLASH url reject-dict
+# 屏蔽默认搜索框关键词
+^https:\/\/(?:app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords url reject-dict
+# 视频左下角流量卡推荐
+^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo$ url reject-dict
+
+# stun请求下发
+^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? url jsonjq-response-body .data[][]?="chat.bilibili.com:3478"
+^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? url jsonjq-response-body del(.data.payment)
+
+# 开屏广告
+^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list url script-response-body https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/bilibili-ad.js?token=209863
+^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/show url script-response-body https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/bilibili-ad.js?token=209863
+# 首页视频信息流
+^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? url script-response-body https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/bilibili-ad.js?token=209863
+# 首页顶部右边图标、导航栏列表、底部tab栏目
+^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2 url script-response-body https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/bilibili-ad.js?token=209863
+# 搜索页推荐
+^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square url script-response-body https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/bilibili-ad.js?token=209863
+# 首页右上角活动小图标
+^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity\? url script-response-body https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/bilibili-ad.js?token=209863
+# 我的页面简化
+^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine url script-response-body https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/bilibili-ad.js?token=209863
+# 直播相关净化
+^https:\/\/api\.live\.bilibili\.com\/xlive\/(?:app-interface\/v2\/index\/feed|app-room\/v1\/index\/getInfoBy(?:Room|User))\? url script-response-body https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/bilibili-ad.js?token=209863
+# 直播tab页面在选择标签后的banner
+^https:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/second\/getList url script-response-body https://klraw.pages.dev/kelv1n1n/script/refs/heads/main/js/bilibili-ad.js?token=209863
+
+# 移除热门话题
+#^https:\/\/(?:app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.show\.v1\.Popular\/Index$ url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.js
+# 视频播放详情页广告
+#^https:\/\/(?:app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.viewunite\.v1\.View\/(?:RelatesFeed|View|ViewProgress)$ url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.js
+# 动态页广告
+#^https:\/\/(?:app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$ url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.js
+# 搜索结果信息流广告
+#^https:\/\/(?:app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$ url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.js
+# 交互式弹幕
+#^https:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/DmView url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.js
+# 评论区广告
+#^https:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.js
+
+^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile)|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/1763a9f1fb7a570895de966393edb08dabc5f585/dist/bilibili.protobuf.js
