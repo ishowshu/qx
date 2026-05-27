@@ -51,4 +51,6 @@ ip-cidr, 123.207.209.39/32, reject
 ^https:\/\/api\.udache\.com\/gulfstream\/passenger-center\/v2\/other\/pInTripLayout url jsonjq-response-body .data.order_components |= map(select((.name != "passenger_common_casper") and (.name != "xp-card")))
 ^https:\/\/api\.udache\.com\/gulfstream\/passenger-center\/v2\/bronze\/pEndTripPaidLayout url jsonjq-response-body .data.layout.order -=  ["finish-evaluate-01","question-end-card_finish_1","evaluate-card_finish_1","xp-card-swiper-banner_finish_1","package-pay-card_finish_1","xp-vip-level_finish_1"]
 
+^https:\/\/common\.diditaxi\.com\.cn\/passenger\/historyV2
+
 hostname = 123.207.209.*, 116.85.2.14, 116.85.2.40, 116.85.2.41, 113.46.225.4, 113.46.225.5, 113.46.225.2, 113.46.225.3, ct.xiaojukeji.com, conf.diditaxi.com.cn, api.udache.com, common.diditaxi.com.cn, res.xiaojukeji.com
