@@ -25,8 +25,8 @@
 ^https:\/\/bbs\.mobileapi\.hupu\.com\/\d\/\d\.\d\.\d+\/bbsallapi\/topics\/topicSquareDetail url jsonjq-response-body .data.list |= map(select(.cate_id != -99))
 # 我的页面底部菜单
 ^https:\/\/bbs\.mobileapi\.hupu\.com\/\d\/\d\.\d\.\d+\/bbsallapi\/lego\/data  url jsonjq-response-body .data.cards |= map(select(.code != "multiIcon"))
-# 赛事直播页tab、预测信息
-#^https:\/\/match-api\.hupu\.com\/\d\/\d\.\d\.\d+\/matchallapi\/liveTabList url jsonjq-response-body .result.categoryList |= map(select(.categoryId != "live_lottery" and .categoryId != "live_game"))
+# 赛事直播页tab白名单
+^https:\/\/match-api\.hupu\.com\/\d\/\d\.\d\.\d+\/matchallapi\/liveTabList url jsonjq-response-body .result.categoryList |= map(select(.categoryId | IN("live_preview","live_discuss","live_information")))
 # NBA页签到活动
 ^https:\/\/games\.mobileapi\.hupu\.com\/\d\/\d\.\d\.\d+\/bplbffapi\/device\/v1\/nav\/content url jsonjq-response-body .result.components |= map(select(.order != 5))
 # 虎扑广场顶部话题
