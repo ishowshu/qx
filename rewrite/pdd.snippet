@@ -25,7 +25,7 @@
 # 订单页面顶部优惠券横幅推广及倒计时
 ^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element url reject-dict
 # 拼多多我的页面顶部红包入口、省钱卡、横幅广告（personal_banner:中间的横幅广告,monthly_card_entrance:省钱月卡,.personal_center_style_v2_vo.third_personal_icons_v2:现金大转盘等菜单,
-#^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub url jsonjq-response-body del(.personal_banner, .personal_center_style_v2_vo.third_personal_icons_v2) | .monthly_card_entrance.display = false
+^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub url jsonjq-response-body del(.personal_banner, .personal_center_style_v2_vo.third_personal_icons_v2) | .monthly_card_entrance.display = false
 # 首页底部优惠券推荐横条
 ^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather url jsonjq-response-body del(.newer_index_banner.data)
 # 物流页面横幅广告
