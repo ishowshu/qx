@@ -8,6 +8,7 @@ host, app.biliapi.net, reject
 host, api.biliapi.net, reject
 host, app.biliapi.com, reject
 host, api.biliapi.com, reject
+#AND,((DOMAIN-SUFFIX,chat.bilibili.com), (OR,((DOMAIN-KEYWORD,stun), (DOMAIN-KEYWORD,tracker), (DOMAIN-KEYWORD,p2p)))),REJECT
 
 # 开屏广告
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(list|show|event\/list2)\? url jsonjq-response-body '.data |= with_entries(if .key | IN("show", "event_list") then .value = [] else . end)'
