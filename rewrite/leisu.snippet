@@ -1,3 +1,23 @@
 #!name = 雷速体育
 #!desc = 移除开屏和评论区广告
 #!author = 树先生
+
+host, et.tanx.com, reject
+host, adx-cfg-u1.ubixioe.com, reject
+host, v.adintl.cn, reject
+host, inner.shunchangzhixing.com, reject
+host, ad-api.adn-plus.com.cn, reject
+host, res1.hubcloud.com.cn, reject
+host-suffix, zhangyuyidong.cn, reject
+host, sdk.1rtb.net, reject
+host, opehs.tanx.com, reject
+host, dsp.1rtb.com, reject
+host, dsp.ads.umeng.com, reject
+host, analytics.oceanengine.com, reject
+host, sdk-config.tanx.com, reject
+host, adsmartget.datads.cn, reject
+
+^https:\/\/s3plus\.meituan\.net\/ leisu* url-and-header reject-dict
+^https:\/\/img1\.360buyimg\.com\/pop\/jfs\/t1 leisu* url-and-header reject-dict
+
+hostname = s3plus.meituan.net, img1.360buyimg.com
