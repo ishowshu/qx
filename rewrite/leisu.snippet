@@ -2,6 +2,8 @@
 #!desc = 移除开屏和评论区广告
 #!author = 树先生
 
+host, api-ad.chuangyuejoy.com, reject
+host, dsp-tos.mongac.com, reject
 host, et.tanx.com, reject
 host, adx-cfg-u1.ubixioe.com, reject
 host, v.adintl.cn, reject
@@ -19,5 +21,8 @@ host, adsmartget.datads.cn, reject
 
 ^https:\/\/s3plus\.meituan\.net\/ leisu* url-and-header reject-dict
 ^https:\/\/img1\.360buyimg\.com\/pop\/jfs\/t1 leisu* url-and-header reject-dict
+^https:\/\/p\d+-sign\.douyinpic\.com\/ leisu* url-and-header reject-dict
 
-hostname = s3plus.meituan.net, img1.360buyimg.com
+^https:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads\/ url reject-dict
+
+hostname = s3plus.meituan.net, img1.360buyimg.com, p*-sign.douyinpic.com, api-access.pangolin-sdk-toutiao.com
