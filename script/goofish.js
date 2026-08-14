@@ -111,7 +111,9 @@ if (url.includes("/mtop.taobao.idlehome.home.circle.list")) {
   if (obj.data?.next?.headList) {
     obj.data.next.headList = obj.data.next.headList.filter(circle => circle.bizCode === "main" || circle.bizCode === "recycle");
   }
-  obj.data.headList = obj.data.headList.filter(circle => circle.bizCode === "main" || circle.bizCode === "recycle");
+  if (obj.data?.headList?.length > 0) {
+    obj.data.headList = obj.data.headList.filter(circle => circle.bizCode === "main" || circle.bizCode === "recycle");
+  }
 }
 
 //if (url.indexOf("/mtop.taobao.idlemtopsearch.search") != -1) {
