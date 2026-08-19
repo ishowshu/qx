@@ -2,13 +2,10 @@
 #!desc = B站去广告(维护Rucu6弃用qx后的版本)，qx已知最后能用的版本是8.44.0
 #!author = kokoryh, Rucu6, 树先生
 
-hostname = *.bilibili.com, grpc.biliapi.net
-
 host, app.biliapi.net, reject
 host, api.biliapi.net, reject
 host, app.biliapi.com, reject
 host, api.biliapi.com, reject
-host, line3-h5-mobile-api.biligame.com, reject
 host-suffix, chat.bilibili.com, reject
 
 # 屏蔽默认搜索框关键词
@@ -52,3 +49,5 @@ host-suffix, chat.bilibili.com, reject
 #^https:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.main\.community\.reply\.v1\.Reply\/MainList url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.js
 
 ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile)|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/1763a9f1fb7a570895de966393edb08dabc5f585/dist/bilibili.protobuf.js
+
+hostname = *.bilibili.com, grpc.biliapi.net
