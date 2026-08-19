@@ -9,13 +9,15 @@ host, api.biliapi.com, reject
 host-suffix, chat.bilibili.com, reject
 
 # 屏蔽默认搜索框关键词
-^https:\/\/(?:app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords url reject-dict
+^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords url reject-dict
 # 视频左下角流量卡推荐
 ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo$ url reject-dict
 
 # stun请求下发
+^https:\/\/api\.live\.bilibili\.com\/xlive\/open-interface\/v2\/tracker\/conf\? url jsonjq-response-body .data.domains=["wss://tracker.chat.bilibili.com"]
 ^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? url jsonjq-response-body .data[][]?="chat.bilibili.com:3478"
 ^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? url jsonjq-response-body del(.data.payment)
+^https:\/\/api\.bilibili\.com\/pgc\/page\/channel\? url jsonjq-response-body .data.modules |= map(select(.type != "TIP") | if .type == "BANNER" then .module_data.items |= map(select(.url | startswith("https://www.bilibili.com/blackboard/era/") | not)) else . end)
 
 # 开屏广告
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/bilibili-ad.js
