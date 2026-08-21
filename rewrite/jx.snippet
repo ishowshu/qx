@@ -4,6 +4,6 @@
 #!date = 2026-08-21 15:00
 
 ^https:\/\/hoapp\.juneyaoair\.com\/data\/index\/getLoadPic url reject-dict
-^https:\/\/hoapp\.juneyaoair\.com\/data\/index\/getPictureList url response-body-json-jq if (.objData | any(.picLocation == "POSITION_POP_INDEX" or .picLocation == "POSITION_MY_ADD")) then .objData = [] else . end
+^https:\/\/hoapp\.juneyaoair\.com\/data\/index\/getPictureList url jsonjq-response-body if (.objData | any(.picLocation == "POSITION_POP_INDEX" or .picLocation == "POSITION_MY_ADD")) then .objData = [] else . end
 
 hostname = hoapp.juneyaoair.com
