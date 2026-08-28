@@ -34,10 +34,6 @@
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/order\/car\/rights_information url reject-dict
 #  导航打车tab去除顺风车推荐
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/transportation\/diversion\/resource\/driving url reject-dict
-#  首页底部ai(如果有下一条规则，那本条规则不会触发
-#^https:\/\/ai\.amap\.com\/v1\/ai_rec\/ url reject-dict
-#  去除ai功能
-#^https:\/\/m5\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable\/ url jsonjq-response-body .data.aiNativeV16={"status":1,"version":"","value":""}|.data.aiNative1520={"status":1,"version":"","value":""}|.data.ai_agent_enter_style_cursor={"status":1,"version":"","value":""}|.data.ai_scenes={"status":1,"version":"","value":""}|.data.aiNativeRC06={"status":1,"version":"","value":""}|.data.plan_ai={"status":1,"version":"","value":""}|.data.ai_native_smart_island={"status":1,"version":"","value":""}|.data.llm={"status":2,"version":"","value":""}
 #  新的开屏广告
 ^https:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt url reject-dict
 #  高德打车广告
@@ -70,8 +66,8 @@
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_operation_location url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/amap.js
 
 # 首页推广
-#^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page) url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/amap.js
-#^https:\/\/m5\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable\/1\? url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/amap.js
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page) url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/amap.js
+
 
 # 我的页面推广
 ^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\? url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/amap.js
