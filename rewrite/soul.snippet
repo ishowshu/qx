@@ -48,9 +48,9 @@
 
 # 派对页面的关注tab中我的关注推荐
 ^https:\/\/chat-live\.soulapp\.cn\/live\/queryFollowRoomList url jsonjq-response-body .data.recUserFeedList = []
+# 派对页面的关注tab中猜你喜欢
+^https:\/\/chat-live\.soulapp\.cn\/square\/relation\/guideUserList url jsonjq-response-body .data.userDTOList = []
 
-# 派对猜你喜欢
-^https:\/\/chat-live\.soulapp\.cn\/square\/relation\/guideUserList url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
 # 私聊限制
 ^https:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
 # 星球页面按钮
