@@ -10,6 +10,10 @@ ip-cidr, 47.56.131.76/32, direct
 ip-cidr, 47.75.72.47/32, direct
 ip-cidr, 3.0.163.78/32, direct
 
+# 广告
+host, soul-ad.soulapp.cn, reject
+host, ad-r.soulapp.cn, reject
+
 # 广告下发
 ^https:\/\/ssp\.soulapp\.cn\/api\/q url reject-dict
 ^https:\/\/47\.110\.187\.87\/winterfell\/(?:v2\/)?getIpByDomain url reject-dict
@@ -72,4 +76,4 @@ ip-cidr, 3.0.163.78/32, direct
 # 私聊阅后即焚
 ^https:\/\/api-chat\.soulapp\.cn\/snapchat\/url url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
 
-hostname = ssp.soulapp.cn, increase-openapi.soulapp.cn, post.soulapp.cn, api-account.soulapp.cn, api-a.soulapp.cn, gateway-mobile-gray.soulapp.cn, api-user.soulapp.cn, chat-live.soulapp.cn, api-chat.soulapp.cn, 47.98.137.249, 47.110.187.87, 116.62.28.7 
+hostname = ssp.soulapp.cn, increase-openapi.soulapp.cn, post.soulapp.cn, api-account.soulapp.cn, api-a.soulapp.cn, gateway-mobile-gray.soulapp.cn, api-user.soulapp.cn, chat-live.soulapp.cn, api-chat.soulapp.cn, 47.98.137.249, 47.99.42.29, 47.110.187.87, 116.62.28.7, 120.55.62.124
