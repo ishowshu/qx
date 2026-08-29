@@ -50,11 +50,11 @@
 ^https:\/\/chat-live\.soulapp\.cn\/live\/queryFollowRoomList url jsonjq-response-body .data.recUserFeedList = []
 # 派对页面的关注tab中猜你喜欢
 ^https:\/\/chat-live\.soulapp\.cn\/square\/relation\/guideUserList url jsonjq-response-body .data.userDTOList = []
+# 星球页面
+^https:\/\/api-user\.soulapp\.cn\/v6\/planet\/config url jsonjq-response-body .data.showRedMind = false | .data.showLuckyBag = false
 
 # 私聊限制
 ^https:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
-# 星球页面按钮
-^https:\/\/api-user\.soulapp\.cn\/v6\/planet\/config url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
 # 派对列表中间横幅官方广告
 ^https:\/\/chat-live\.soulapp\.cn\/chatroom\/chatClassifyRoomList url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
 # 我的页面tab
