@@ -1,4 +1,4 @@
-//  2025-05-09
+//  2026-08-29
 //  树先生
 //  当前文件内容仅供个人学习和研究使用，若使用过程中发生任何问题概不负责
 
@@ -27,12 +27,11 @@ if (url.indexOf("/chat/limitInfo") != -1) {
 
     obj.data.showRedMind = false;
     obj.data.chatRoomInfo.showChatRoom = false;
-    //obj.data.gameInfo.showGameCard = false;
+
     // 星球按钮入口
     const buttonArr = [2, 3];
     obj.data.coreCards = obj.data.coreCards.filter(card => buttonArr.includes(card.sortId));
-    //obj.data.coreCards = obj.data.coreCards.filter(card => resultArray.includes(card.sortId));
-    //obj.data.gameInfo.gameCards = [];
+
     obj.data.coreCards.forEach(card => {
         if (card.hasOwnProperty('showLuckyBag') && card.showLuckyBag === true) {
           card.showLuckyBag = false;
