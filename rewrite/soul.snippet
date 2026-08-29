@@ -13,8 +13,6 @@
 ^https:\/\/api-a\.soulapp\.cn\/official\/scene\/module url reject-dict
 # 我的页面右下角悬浮广告
 ^https:\/\/api-user\.soulapp\.cn\/furion\/position\/content url reject-dict
-# 聊天界面再遇见
-#^https:\/\/api-chat\.soulapp\.cn\/chat\/entrance\/first url reject
 # 通讯录右下角机器人图标
 ^https:\/\/api-chat\.soulapp\.cn\/addressBook\/showBubblingEnter url reject
 # 表情推荐
@@ -45,6 +43,11 @@
 ^https:\/\/api-user\.soulapp\.cn\/user\/desc\/getUserPersonalDesc url reject-dict
 # 我的页面瞬间得分向导
 ^https:\/\/post\.soulapp\.cn\/v1\/post\/homepage\/ai\/assistant\/guide url reject-dict
+# 聊天列表页面顶部头像推荐横幅
+^https:\/\/api-chat\.soulapp\.cn\/chatList\/limitAvatar\/entrance url reject-dict
+
+# 派对页面的关注tab中我的关注推荐
+^https:\/\/chat-live\.soulapp\.cn\/live\/queryFollowRoomList url jsonjq-response-body .data.recUserFeedList = []
 
 # 派对猜你喜欢
 ^https:\/\/chat-live\.soulapp\.cn\/square\/relation\/guideUserList url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
