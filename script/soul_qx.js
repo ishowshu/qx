@@ -30,7 +30,7 @@ if (url.indexOf("/chat/limitInfo") != -1) {
 
     // 星球按钮入口
     const buttonArr = [2, 3];
-    obj.data.coreCards = obj.data.coreCards.filter(card => buttonArr.includes(card.sortId));
+    //obj.data.coreCards = obj.data.coreCards.filter(card => buttonArr.includes(card.sortId));
 
     obj.data.coreCards.forEach(card => {
         if (card.hasOwnProperty('showLuckyBag') && card.showLuckyBag === true) {
