@@ -54,11 +54,11 @@
 ^https:\/\/api-user\.soulapp\.cn\/v6\/planet\/config url jsonjq-response-body .data.showRedMind = false | .data.showLuckyBag = false
 # 派对列表中间横幅官方广告
 ^https:\/\/chat-live\.soulapp\.cn\/chatroom\/chatClassifyRoomList url jsonjq-response-body .data.positionContentRespList = []
+# 我的页面tab
+^https:\/\/post\.soulapp\.cn\/homepage\/tabs\/v2 url jsonjq-response-body .data.selectedTagPool = {} | .data.headTabDTOList |= map(select(.tabCode != "STAR_TRAILS"))
 
 # 私聊限制
 ^https:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
-# 我的页面tab
-^https:\/\/post\.soulapp\.cn\/homepage\/tabs\/v2 url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
 # 派对频道列表
 ^https:\/\/chat-live\.soulapp\.cn\/chatroom\/getRoomTagInfo url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/soul_qx.js
 # 私聊阅后即焚
