@@ -1,7 +1,7 @@
 #!name = Soul
 #!author = 树先生，怎么肥事, 奶思
 #!desc = 移除广告
-#!date = 2026-08-29
+#!date = 2026-08-30
 
 # 分流走直连，避免影响功能使用
 ip-cidr, 13.127.149.196/32, direct
@@ -15,7 +15,7 @@ host, soul-ad.soulapp.cn, reject
 host, ad-r.soulapp.cn, reject
 
 # 广告下发
-^https:\/\/ssp\.soulapp\.cn\/api\/q url reject-dict
+^https:\/\/ssp\.soulapp\.cn\/api url reject-dict
 ^https:\/\/47\.110\.187\.87\/winterfell\/(?:v2\/)?getIpByDomain url reject-dict
 # 我的页面瞬间指导
 ^https:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card url reject-dict
