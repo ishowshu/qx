@@ -26,22 +26,23 @@ if (url.indexOf("/chat/limitInfo") != -1) {
     };
 
     obj.data.showRedMind = false;
-    obj.data.chatRoomInfo.showChatRoom = false;
+    // 展示派对入口
+    //obj.data.chatRoomInfo.showChatRoom = false;
 
     // 星球按钮入口
     const buttonArr = [2, 3];
     //obj.data.coreCards = obj.data.coreCards.filter(card => buttonArr.includes(card.sortId));
 
-    obj.data.coreCards.forEach(card => {
-        if (card.hasOwnProperty('showLuckyBag') && card.showLuckyBag === true) {
-          card.showLuckyBag = false;
-        }
-        card.showLuckyBag = false;
-        card.showRedMind = false;
-        card.style = 1;
-        delete card.bgImg;
-        delete card.iconUrl;
-    });
+    //obj.data.coreCards.forEach(card => {
+        //if (card.hasOwnProperty('showLuckyBag') && card.showLuckyBag === true) {
+        //  card.showLuckyBag = false;
+        //}
+        //card.showLuckyBag = false;
+        //card.showRedMind = false;
+        //card.style = 1;
+        //delete card.bgImg;
+        //delete card.iconUrl;
+    //});
 
     obj.data.showLuckyBag = false;
     //  屏蔽优惠卡的图片，但是入口还在
