@@ -31,18 +31,6 @@ if (url.indexOf("/chat/limitInfo") != -1) {
     // 保留tab
     obj.data = obj.data.filter(item => item.pageId === "PostSquare_Recommend");
 
-} else if (url.indexOf("/homepage/metrics") != -1) {
-    obj.data.recentViewNum = 0;
-    obj.data.showTipsCard = false;
-    obj.data.showMetric = false;
-    obj.data.hasHomePageLiked = false;
-    if (obj && obj.data && obj.data.homePageLikedMetric){
-      obj.data.homePageLikedMetric.addNum = 0;
-      obj.data.homePageLikedMetric.likedTotalNum = 0;
-      obj.data.homePageLikedMetric.hasShowHistoryDynamic = false;
-    }
-    //obj.data.homePageLikedMetric.likedTotalNum = 0;
-    //obj.data.homePageLikedMetric.hasShowHistoryDynamic = false;
 } else if (url.indexOf("relation/guideUserList") != -1) {
     obj.data.userDTOList = [];
 } else if (url.indexOf("/homepage/tabs/v2") != -1) {
