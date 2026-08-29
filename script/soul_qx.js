@@ -23,16 +23,14 @@ if (url.indexOf("/chat/limitInfo") != -1) {
 } else if (url.indexOf("/chatroom/chatClassifyRoomList") != -1) {
     // 派对中间广告横幅
     obj.data.positionContentRespList = [];
-    //console.log(JSON.stringify(obj.data.positionContentRespList));
-    // 过滤掉派对人数大于2的
-    //obj.data.roomList = obj.data.roomList.filter(i => i.roomerNum < 2);
 } else if (url.indexOf("/square/header/tabs") != -1) {
+    
     obj.data.forEach(card => {
         card.unreadFlag = 0;
     });
     // 保留tab
     obj.data = obj.data.filter(item => item.pageId === "PostSquare_Recommend");
-    //obj.data = [];
+
 } else if (url.indexOf("/homepage/metrics") != -1) {
     obj.data.recentViewNum = 0;
     obj.data.showTipsCard = false;
