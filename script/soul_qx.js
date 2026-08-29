@@ -15,53 +15,6 @@ if (url.indexOf("/chat/limitInfo") != -1) {
     delete obj.data.remainFreeCount;
     delete obj.data.type;
     obj.data.limit = false;
-} else if (url.indexOf("/planet/config") != -1){
-
-    obj.data.showRedMind = false;
-    obj.data.showLuckyBag = false;
-
-} else if (url.indexOf("/chatroom/chatClassifyRoomList") != -1) {
-    // 派对中间广告横幅
-    obj.data.positionContentRespList = [];
-} else if (url.indexOf("/square/header/tabs") != -1) {
-    
-    obj.data.forEach(card => {
-        card.unreadFlag = 0;
-    });
-    // 保留tab
-    obj.data = obj.data.filter(item => item.pageId === "PostSquare_Recommend");
-
-} else if (url.indexOf("relation/guideUserList") != -1) {
-    obj.data.userDTOList = [];
-} else if (url.indexOf("/homepage/tabs/v2") != -1) {
-    obj.data.selectedTagPool = {};
-    const tab = ["STAR_TRAILS"];
-    obj.data.headTabDTOList = obj.data.headTabDTOList.filter(t => !tab.includes(t.tabCode));
-} else if (url.indexOf("/chatroom/getRoomTagInfo") != -1) {
-
-    // 每个变量对应的 id
-    const idMap = {
-        hot: 11,
-        all: 0,
-        emotion: 43,
-        personal: 44,
-        play: 12,
-        interest: 10,
-        argue: 6,
-        story: 5,
-        chat: 4,
-        heart: 2
-    };
-
-    // 创建一个空数组用于存储符合条件的 id
-    let resultArray = [0, 4];
-    obj.data.res = obj.data.res.filter(t => resultArray.includes(t.id));
-    obj.data.res.forEach(card => {
-        if (card.iconConfig != null) {
-            card.iconConfig = null;
-        }
-    });
-  
 } else if (url.indexOf("/snapchat/url") != -1) {
     try {
         //console.log("响应原文obj：" + obj);
