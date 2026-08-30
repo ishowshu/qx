@@ -1,6 +1,6 @@
 #!name = Soul
 #!author = 树先生，怎么肥事, 奶思
-#!desc = 移除广告
+#!desc = 移除广告，需要卸载重装生效
 #!date = 2026-08-30
 
 # 分流走直连，避免影响功能使用
@@ -10,10 +10,16 @@ ip-cidr, 47.56.131.76/32, direct
 ip-cidr, 47.75.72.47/32, direct
 ip-cidr, 3.0.163.78/32, direct
 
-# 广告
+# 官方广告
 host, ssp.soulapp.cn, reject
 host, soul-ad.soulapp.cn, reject
 host, ad-r.soulapp.cn, reject
+
+# 第三方平台广告
+host, ssp.1rtb.com, reject
+host, impdsp.meituan.com, reject
+host, s3plus.meituan.net, reject
+host, ssp.maplehaze.cn, reject
 
 # 广告下发(ip映射请求
 ^https:\/\/ssp\.soulapp\.cn\/api url reject-dict
