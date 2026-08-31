@@ -70,7 +70,8 @@ try {
         "yellowPageAdRecommendModule",
         "similarShopRecommend",
         "combineReviews",
-        "poiDetailNote"
+        "poiDetailNote",
+        "commonHkfMiniPortal"
       ];
 
       // 删除广告模块
