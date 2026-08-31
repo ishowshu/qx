@@ -67,7 +67,8 @@ try {
         "mallNews",
         "brand_shop_bar",
         "enhanceCustomerServicePoiModule",
-        "imBottomGuide"
+        "imBottomGuide",
+        "image_banner"
       ];
 
       // 删除广告模块
