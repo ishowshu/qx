@@ -23,7 +23,7 @@
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured url reject-dict
 
 # 订单页详情底部广告
-^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource url jsonjq-response-body del(.data.banner)
+^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource url jsonjq-response-body del(.data.banner, .data.popup)
 # 首页搜索框提示
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend url jsonjq-response-body .data.shadingWords = {}
 # 开屏广告
