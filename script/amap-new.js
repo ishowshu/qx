@@ -66,7 +66,8 @@ try {
         "housesShelf",
         "mallNews",
         "brand_shop_bar",
-        "enhanceCustomerServicePoiModule"
+        "enhanceCustomerServicePoiModule",
+        "imBottomGuide"
       ];
 
       // 删除广告模块
