@@ -15,15 +15,16 @@ try {
       // 过滤金刚位工具箱（只保留指定4个）
       if (obj.data.lubanData.kingToolBox?.dataList) {
         const keep = [
-          "dache_toolbox_taxi_overseas_channel", // 出境用车
-          "dache_toolbox_hitch",                 // 顺风车
-          "dache_toolbox_GDIntercity",           // 高德拼车
-          "dache_toolbox_chauffeur"              // 代驾
+          "dache_toolbox_taxi_overseas_channel",
+          "dache_toolbox_hitch",
+          "dache_toolbox_GDIntercity",
+          "dache_toolbox_chauffeur"
         ];
 
-        obj.data.lubanData.kingToolBox.dataList = obj.data.lubanData.kingToolBox.dataList.filter(item => {
-          return item?.biz?.id && keep.includes(item.biz.id);
-        });
+        obj.data.lubanData.kingToolBox.dataList =
+          obj.data.lubanData.kingToolBox.dataList.filter(item => {
+            return item?.biz?.id && keep.includes(item.biz.id);
+          });
       }
     }
   }
@@ -82,9 +83,10 @@ try {
       if (obj.data.regions) {
         for (let region in obj.data.regions) {
           if (Array.isArray(obj.data.regions[region])) {
-            obj.data.regions[region] = obj.data.regions[region].filter(
-              item => !adModules.includes(item)
-            );
+            obj.data.regions[region] =
+              obj.data.regions[region].filter(
+                item => !adModules.includes(item)
+              );
           }
         }
       }
@@ -96,86 +98,61 @@ try {
 
       // 清理 half_hidden_modules
       if (obj.data.meta?.half_hidden_modules) {
-        obj.data.meta.half_hidden_modules = obj.data.meta.half_hidden_modules.filter(
-          item => !adModules.includes(item)
-        );
+        obj.data.meta.half_hidden_modules =
+          obj.data.meta.half_hidden_modules.filter(
+            item => !adModules.includes(item)
+          );
       }
-
 
       // 处理地图 main_point
       if (obj.data.modules?.poiMapModule?.data?.map?.main_point) {
-         const mainPoint = obj.data.modules.poiMapModule.data.map.main_point;
+        const mainPoint =
+          obj.data.modules.poiMapModule.data.map.main_point;
 
-         // 1. 删除营销纹理
-         if (mainPoint.dynamic_texture) {
+        // 删除营销纹理
+        if (mainPoint.dynamic_texture) {
           delete mainPoint.dynamic_texture;
-         }
-
-         // 2. 修改 card_id
-         mainPoint.card_id = "normal_lottie";
-
-         // 3. 清空 logo
-         mainPoint.logo = "";
-       }
-    }
-  } 
-  // ==================== 3. 搜索列表页去广告 + 去笔记种草 ====================
-else if (url.includes("/shield/search_poi/search/sp")) {
-  if (obj?.data) {
-    const searchAdModules = [
-      "BrandBannerCard",
-      "CustomerServiceAdEntrances",
-      "PrecisionEntrances",
-      "CouponBanner",
-      "HeaderTipInfo",
-      "HeaderTipSection"
-    ];
-
-    // 删除顶部广告模块
-    if (obj.data.modules) {
-      searchAdModules.forEach(key => {
-        if (obj.data.modules[key]) {
-          delete obj.data.modules[key];
         }
-      });
-    }
 
-    // 清理 regions.listManage
-    if (obj.data.regions?.listManage) {
-      obj.data.regions.listManage = obj.data.regions.listManage.filter(
-        item => !searchAdModules.includes(item)
-      );
-    }
+        // 修改 card_id
+        mainPoint.card_id = "normal_lottie";
 
-    // 去掉列表中的笔记 / 种草卡片
-    if (obj.data.modules?.listResult?.data?.list) {
-      obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter(item => {
-        // 过滤掉 contentNote / NOTE 类型
-        if (item?.item_type === "contentNote" || item?.type === "NOTE") {
-          return false;
-        }
-        // 也可以根据 header.subTitle 判断
-        if (item?.header?.subTitle === "笔记") {
-          return false;
-        }
-        return true;
-      });
-    }
-
-    // 如果有 feedResult 也一并清理
-    if (obj.data.modules?.feedResult?.data?.list) {
-      obj.data.modules.feedResult.data.list = obj.data.modules.feedResult.data.list.filter(item => {
-        if (item?.item_type === "contentNote" || item?.type === "NOTE") {
-          return false;
-        }
-        if (item?.header?.subTitle === "笔记") {
-          return false;
-        }
-        return true;
-      });
+        // 清空 logo
+        mainPoint.logo = "";
+      }
     }
   }
-}
+
+  // ==================== 3. 搜索列表页去广告 ====================
+  else if (url.includes("/shield/search_poi/search/sp")) {
+    if (obj?.data) {
+      const searchAdModules = [
+        "BrandBannerCard",
+        "CustomerServiceAdEntrances",
+        "PrecisionEntrances",
+        "CouponBanner",
+        "HeaderTipInfo",
+        "HeaderTipSection"
+      ];
+
+      // 删除顶部广告模块
+      if (obj.data.modules) {
+        searchAdModules.forEach(key => {
+          if (obj.data.modules[key]) {
+            delete obj.data.modules[key];
+          }
+        });
+      }
+
+      // 清理 regions.listManage
+      if (obj.data.regions?.listManage) {
+        obj.data.regions.listManage =
+          obj.data.regions.listManage.filter(
+            item => !searchAdModules.includes(item)
+          );
+      }
+    }
+  }
 
   body = JSON.stringify(obj);
 } catch (e) {
