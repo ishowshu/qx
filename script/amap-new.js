@@ -151,6 +151,14 @@ try {
             item => !searchAdModules.includes(item)
           );
       }
+
+      if (Array.isArray(obj?.data?.modules?.listResult?.data?.list) &&
+        obj.data.modules.listResult.data.list.length > 0) {
+        obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter(
+          item => item?.card_id === "PoiCardUniversal"
+        );
+      }
+      
     }
   }
 
