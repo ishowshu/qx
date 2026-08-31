@@ -108,10 +108,21 @@ try {
       }
 
 
-      // 删除地图上的 main_point（包含营销纹理）
-      //if (obj.data.modules?.poiMapModule?.data?.map?.main_point) {
-      //  delete obj.data.modules.poiMapModule.data.map.main_point;
-      //}
+      // 处理地图 main_point
+      if (obj.data.modules?.poiMapModule?.data?.map?.main_point) {
+         const mainPoint = obj.data.modules.poiMapModule.data.map.main_point;
+
+         // 1. 删除营销纹理
+         if (mainPoint.dynamic_texture) {
+          delete mainPoint.dynamic_texture;
+         }
+
+         // 2. 修改 card_id
+         mainPoint.card_id = "normal_lottie";
+
+         // 3. 清空 logo
+         mainPoint.logo = "";
+       }
     }
   }
 
