@@ -7,6 +7,10 @@
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch AMapiPhone* url-and-header reject
 # 开屏广告
 ^https:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt url reject-dict
+# 打车页面底部推广
+^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource\/home url reject-dict
+# 首页底部ai、探索ai分析
+^https:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs url reject-dict
 
 # 首页搜索框提示
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend url jsonjq-response-body .data.shadingWords = {}
