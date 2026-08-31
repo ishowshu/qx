@@ -71,7 +71,8 @@ try {
         "similarShopRecommend",
         "combineReviews",
         "poiDetailNote",
-        "commonHkfMiniPortal"
+        "commonHkfMiniPortal",
+        "activityRecommendation"
       ];
 
       // 删除广告模块
