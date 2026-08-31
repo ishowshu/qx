@@ -5,8 +5,10 @@
 
 # 阿里平台广告
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch AMapiPhone* url-and-header reject
+# 开屏广告
+^https:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt url reject-dict
 
 # 我的页面精简
 ^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\? url jsonjq-response-body .data.cardList |= map(select(.dataKey == (["MineNewFootprintCard","MineNewBEntranceCardV4","MineNewBEntranceCardV3"][])))
 
-hostname = m5.amap.com
+hostname = m5.amap.com,amap-aos-info-nogw.amap.com
