@@ -20,6 +20,8 @@
 # 订单页详情底部问题反馈
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/order\/car\/feedback\/get_card_questions url reject-dict
 
+# 订单页详情底部广告
+^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource url jsonjq-response-body del(.data.banner)
 # 首页搜索框提示
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend url jsonjq-response-body .data.shadingWords = {}
 # 开屏广告
@@ -28,6 +30,7 @@
 ^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\? url jsonjq-response-body .data.cardList |= map(select(.dataKey == (["MineNewFootprintCard","MineNewBEntranceCardV4","MineNewBEntranceCardV3"][])))
 # 首页地图图层推广
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-aiqs url jsonjq-response-body .data.mapBizList |= map(select(IN(.dataKey; "UserAssetsVirtualCard", "FootPrintNewCityDialog", "PoiRecommendVirtualCard", "PersonalRecommendVirtualCard") | not))
+
 # 打车页面图标菜单
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/amap-new.js
 
