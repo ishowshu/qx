@@ -17,6 +17,6 @@
 # 首页地图图层推广
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-aiqs url jsonjq-response-body .data.mapBizList |= map(select(IN(.dataKey; "UserAssetsVirtualCard", "FootPrintNewCityDialog", "PoiRecommendVirtualCard", "PersonalRecommendVirtualCard") | not))
 # 打车页面图标菜单
-^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info url jsonjq-response-body .data.lubanData.skin.dataList = [] | .data.lubanData.kingToolBox.dataList? |= map(select(.biz.id == (["dache_toolbox_taxi_overseas_channel","dache_toolbox_hitch","dache_toolbox_GDIntercity","dache_toolbox_chauffeur"][])))
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info url jsonjq-response-body .data.lubanData.skin.dataList = [] | .data.lubanData.kingToolBox.dataList? |= map(select(.biz.id | IN("dache_toolbox_taxi_overseas_channel","dache_toolbox_hitch","dache_toolbox_GDIntercity","dache_toolbox_chauffeur")))
 
 hostname = m5.amap.com,amap-aos-info-nogw.amap.com,m5-zb.amap.com
