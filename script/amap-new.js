@@ -68,7 +68,10 @@ try {
         "brand_shop_bar",
         "enhanceCustomerServicePoiModule",
         "imBottomGuide",
-        "image_banner"
+        "image_banner",
+        "nearbyRecommendModule",
+        "poiDetailWaterFeed",
+        "poiDetailWaterFeedTitle"
       ];
 
       // 删除广告模块
