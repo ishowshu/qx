@@ -65,7 +65,8 @@ try {
         "standardGasPriceShelf",
         "housesShelf",
         "mallNews",
-        "brand_shop_bar"
+        "brand_shop_bar",
+        "enhanceCustomerServicePoiModule"
       ];
 
       // 删除广告模块
