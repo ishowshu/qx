@@ -109,9 +109,9 @@ try {
       }
 
       // 去掉地图上的营销动态纹理
-      if (obj.data.modules?.poiMapModule?.data?.map?.main_point?.dynamic_texture) {
-        delete obj.data.modules.poiMapModule.data.map.main_point.dynamic_texture;
-      }
+      //if (obj.data.modules?.poiMapModule?.data?.map?.main_point?.dynamic_texture) {
+      //  delete obj.data.modules.poiMapModule.data.map.main_point.dynamic_texture;
+      //}
     }
   }
 
