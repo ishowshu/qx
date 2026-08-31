@@ -72,7 +72,9 @@ try {
         "combineReviews",
         "poiDetailNote",
         "commonHkfMiniPortal",
-        "activityRecommendation"
+        "activityRecommendation",
+        "waterFallFeedTitle",
+        "cityCardFeed"
       ];
 
       // 删除广告模块
