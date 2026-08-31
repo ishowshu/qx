@@ -109,9 +109,9 @@ try {
 
 
       // 删除地图上的 main_point（包含营销纹理）
-      if (obj.data.modules?.poiMapModule?.data?.map?.main_point) {
-        delete obj.data.modules.poiMapModule.data.map.main_point;
-      }
+      //if (obj.data.modules?.poiMapModule?.data?.map?.main_point) {
+      //  delete obj.data.modules.poiMapModule.data.map.main_point;
+      //}
     }
   }
 
