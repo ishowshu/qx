@@ -1,10 +1,12 @@
+
+const url = $request.url;
+let body = $response.body;
+
 /**
  * 高德打车 content_info 去皮肤 + 过滤金刚位
  * 保留：出境用车、顺风车、高德拼车、代驾
  */
-
-let body = $response.body;
-
+if (url.includes("/car/order/content_info")) {
 try {
   let obj = JSON.parse(body);
 
@@ -32,6 +34,7 @@ try {
   body = JSON.stringify(obj);
 } catch (e) {
   console.log("解析失败: " + e);
+}
 }
 
 $done({ body });
