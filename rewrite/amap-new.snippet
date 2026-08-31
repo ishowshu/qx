@@ -11,6 +11,14 @@
 ^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource\/home url reject-dict
 # 首页底部ai、探索ai分析
 ^https:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs url reject-dict
+# 订单页详情底部目的地附近好店推荐
+^https:\/\/m5\.amap\.com\/ws\/info_bff\/rankingCard url reject-dict
+# 订单页详情打车服务评价
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/order\/car\/remark\/satisfactionConf url reject-dict
+# 订单页详情底部支付宝推广横幅
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/pay\/web\/paySuccess\/info\/request url reject-dict
+# 订单页详情底部问题反馈
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/order\/car\/feedback\/get_card_questions url reject-dict
 
 # 首页搜索框提示
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend url jsonjq-response-body .data.shadingWords = {}
