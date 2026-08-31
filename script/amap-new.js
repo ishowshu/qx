@@ -1,12 +1,6 @@
 const url = $request.url;
 let body = $response.body;
 
-/**
- * 高德地图综合去广告脚本
- * 1. 打车 content_info：去皮肤 + 过滤金刚位
- * 2. POI详情页：去优惠券/营销模块
- */
-
 try {
   let obj = JSON.parse(body);
 
@@ -124,7 +118,64 @@ try {
          mainPoint.logo = "";
        }
     }
+  } 
+  // ==================== 3. 搜索列表页去广告 + 去笔记种草 ====================
+else if (url.includes("/shield/search_poi/search/sp")) {
+  if (obj?.data) {
+    const searchAdModules = [
+      "BrandBannerCard",
+      "CustomerServiceAdEntrances",
+      "PrecisionEntrances",
+      "CouponBanner",
+      "HeaderTipInfo",
+      "HeaderTipSection"
+    ];
+
+    // 删除顶部广告模块
+    if (obj.data.modules) {
+      searchAdModules.forEach(key => {
+        if (obj.data.modules[key]) {
+          delete obj.data.modules[key];
+        }
+      });
+    }
+
+    // 清理 regions.listManage
+    if (obj.data.regions?.listManage) {
+      obj.data.regions.listManage = obj.data.regions.listManage.filter(
+        item => !searchAdModules.includes(item)
+      );
+    }
+
+    // 去掉列表中的笔记 / 种草卡片
+    if (obj.data.modules?.listResult?.data?.list) {
+      obj.data.modules.listResult.data.list = obj.data.modules.listResult.data.list.filter(item => {
+        // 过滤掉 contentNote / NOTE 类型
+        if (item?.item_type === "contentNote" || item?.type === "NOTE") {
+          return false;
+        }
+        // 也可以根据 header.subTitle 判断
+        if (item?.header?.subTitle === "笔记") {
+          return false;
+        }
+        return true;
+      });
+    }
+
+    // 如果有 feedResult 也一并清理
+    if (obj.data.modules?.feedResult?.data?.list) {
+      obj.data.modules.feedResult.data.list = obj.data.modules.feedResult.data.list.filter(item => {
+        if (item?.item_type === "contentNote" || item?.type === "NOTE") {
+          return false;
+        }
+        if (item?.header?.subTitle === "笔记") {
+          return false;
+        }
+        return true;
+      });
+    }
   }
+}
 
   body = JSON.stringify(obj);
 } catch (e) {
