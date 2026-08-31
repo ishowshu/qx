@@ -68,7 +68,8 @@ try {
         "poiDetailWaterFeedTitle",
         "similarShelfRecommend",
         "yellowPageAdRecommendModule",
-        "similarShopRecommend"
+        "similarShopRecommend",
+        "combineReviews"
       ];
 
       // 删除广告模块
