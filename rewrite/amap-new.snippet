@@ -24,7 +24,7 @@
 # 首页地图定位标识路线建议
 ^https:\/\/render\.amap\.com\/ws\/render\/api\/data url reject-dict
 # 搜索结果建议
-^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv -url reject-dict
+^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv url reject-dict
 
 # 订单页详情底部广告
 ^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource url jsonjq-response-body del(.data.banner, .data.popup)
