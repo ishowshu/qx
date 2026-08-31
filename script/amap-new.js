@@ -71,7 +71,9 @@ try {
         "image_banner",
         "nearbyRecommendModule",
         "poiDetailWaterFeed",
-        "poiDetailWaterFeedTitle"
+        "poiDetailWaterFeedTitle",
+        "similarShelfRecommend",
+        "yellowPageAdRecommendModule"
       ];
 
       // 删除广告模块
