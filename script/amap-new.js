@@ -1,4 +1,3 @@
-
 const url = $request.url;
 let body = $response.body;
 
@@ -108,10 +107,11 @@ try {
         );
       }
 
-      // 去掉地图上的营销动态纹理
-      //if (obj.data.modules?.poiMapModule?.data?.map?.main_point?.dynamic_texture) {
-      //  delete obj.data.modules.poiMapModule.data.map.main_point.dynamic_texture;
-      //}
+
+      // 删除地图上的 main_point（包含营销纹理）
+      if (obj.data.modules?.poiMapModule?.data?.map?.main_point) {
+        delete obj.data.modules.poiMapModule.data.map.main_point;
+      }
     }
   }
 
