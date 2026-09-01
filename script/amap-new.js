@@ -176,6 +176,20 @@ try {
     }
   }
 
+
+  // ==================== 4. 酒店页面广告 ====================
+  else if (url.includes("/ws/info_bff/tradeUnionPortal")) {
+    if (obj.data.regions?.content && obj.data.regions.content.length > 0) {
+      obj.data.regions.content = ["hotel_list"];
+    }
+    if (obj.data.regions?.other && obj.data.regions.other.length > 0) {
+      obj.data.regions.other = [];
+    }
+    if (obj.data.regions?.widget && obj.data.regions.widget.length > 0) {
+      obj.data.regions.widget = ["hotel_booking"];
+    }
+  }
+
   body = JSON.stringify(obj);
 } catch (e) {
   console.log("高德去广告脚本错误: " + e);
