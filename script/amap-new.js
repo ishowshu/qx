@@ -202,9 +202,8 @@ try {
       }
   
       //  酒店页面的弹窗广告
-      if (obj.data.modules?.CouponPopup?.data && obj.data.modules.CouponPopup.data.length > 0) {
-        delete obj.data.modules.CouponPopup;
-      }
+      if (obj?.data?.modules?.CouponPopup) delete obj.data.modules.CouponPopup;
+      
     }
 
   }
