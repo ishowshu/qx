@@ -184,7 +184,7 @@ try {
   // ==================== 4. 酒店页面广告 ====================
   else if (url.includes("/ws/info_bff/tradeUnionPortal")) {
     if (obj.data.regions?.content && obj.data.regions.content.length > 0) {
-      obj.data.regions.content = ["user_filter_card","hotel_list"];
+      obj.data.regions.content = ["user_filter_card","filter_tab","hotel_list"];
     }
     if (obj.data.regions?.other && obj.data.regions.other.length > 0) {
       obj.data.regions.other = [];
