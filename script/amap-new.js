@@ -192,7 +192,7 @@ try {
     //  酒店搜索框底部关键词提示
     if (obj?.data?.modules?.user_filter_card?.data) {
       delete obj.data.modules.user_filter_card.data.sug_items_data;
-      obj.data.modules?.user_filter_card.data?.banner = {};
+      obj.data.modules.user_filter_card.data.banner = {};
     }
 
     //  酒店页面的弹窗广告
