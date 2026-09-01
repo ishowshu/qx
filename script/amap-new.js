@@ -1,3 +1,7 @@
+//  2026-09-01
+//  树先生
+//  当前文件内容仅供个人学习和研究使用，若使用过程中发生任何问题概不负责
+
 const url = $request.url;
 let body = $response.body;
 
