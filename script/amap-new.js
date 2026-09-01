@@ -188,6 +188,17 @@ try {
     if (obj.data.regions?.widget && obj.data.regions.widget.length > 0) {
       obj.data.regions.widget = ["operation_widget", "hotel_booking"];
     }
+
+    //  酒店搜索框底部关键词提示
+    if (obj.data.modules?.user_filter_card?.data?.sug_items_data && obj.data.modules.user_filter_card.data.sug_items_data.length > 0) {
+      obj.data.modules.user_filter_card.data.sug_items_data.data = [];
+      obj.data.modules.user_filter_card.data.banner = {};
+    }
+
+    //  酒店页面的弹窗广告
+    if (obj.data.modules?.CouponPopup?.data && obj.data.modules.CouponPopup.data.length > 0) {
+      delete obj.data.modules.CouponPopup;
+    }
   }
 
   body = JSON.stringify(obj);
