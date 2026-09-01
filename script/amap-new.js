@@ -70,7 +70,7 @@ try {
         "yellowPageAdRecommendModule",
         "similarShopRecommend",
         "combineReviews",
-        "poiDetailNote",
+        //"poiDetailNote",
         "commonHkfMiniPortal",
         "activityRecommendation",
         "waterFallFeedTitle",
