@@ -26,6 +26,12 @@ try {
             return item?.biz?.id && keep.includes(item.biz.id);
           });
       }
+      
+      // 清楚弹窗
+      if (obj.data.lubanData.popup?.dataList) {
+        obj.data.lubanData.popup.dataList = [];
+      }
+      
     }
   }
 
