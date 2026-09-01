@@ -74,7 +74,8 @@ try {
         "commonHkfMiniPortal",
         "activityRecommendation",
         "waterFallFeedTitle",
-        "cityCardFeed"
+        "cityCardFeed",
+        "hotelList"
       ];
 
       // 删除广告模块
