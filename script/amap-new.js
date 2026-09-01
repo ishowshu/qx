@@ -186,7 +186,7 @@ try {
       obj.data.regions.other = [];
     }
     if (obj.data.regions?.widget && obj.data.regions.widget.length > 0) {
-      obj.data.regions.widget = ["hotel_booking"];
+      obj.data.regions.widget = ["operation_widget", "hotel_booking"];
     }
   }
 
