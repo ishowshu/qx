@@ -203,7 +203,7 @@ try {
 
   body = JSON.stringify(obj);
 } catch (e) {
-  console.log("高德去广告脚本错误: " + e);
+  console.log("脚本错误: " + e);
 }
 
 $done({ body });
