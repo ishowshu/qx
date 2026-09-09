@@ -26,4 +26,4 @@ host, t-ads.xiaohongshu.com, reject
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/trending\? url jsonjq-response-body .data.queries = [] | .data.hint_word = {}
 ^https?:\/\/(so|edith)\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes\? url jsonjq-response-body .data.items? |= map(select(.model_type == "note"))
 
-hostname = *.xiaohongshu.com
+hostname = edith.xiaohongshu.com, www.xiaohongshu.com, so.xiaohongshu.com
