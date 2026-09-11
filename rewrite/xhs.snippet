@@ -13,6 +13,16 @@ host, t-ads.xiaohongshu.com, reject
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/detailfeed\/preload\? url reject-dict
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/guide\/user_banner url reject-dict
 ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/(v\d+\/ads\/resource|v\d+\/hey\/\w+\/hey_gallery) url reject-dict
+# 我的页面中间提示横幅
+^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/content\/navigator url reject-dict
+# 广告资源请求
+^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/ads\/resource url reject-dict
+# ip获取
+^https:\/\/gslb\.xiaohongshu\.com\/api\/httpdns\/v1\/domains url reject-dict
+^https:\/\/gslb\.xiaohongshu\.com\/api\/gslb\/v1\/domainNew url reject-dict
+# 广告请求
+^https:\/\/www\.xiaohongshu\.com\/api\/sns\/v1\/tag\/ads_engage url reject-dict
+^https:\/\/www\.xiaohongshu\.com\/api\/sns\/v1\/ads\/apple\/record url reject-dict
 
 # 开屏广告
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/config\? url jsonjq-response-body del(.data.app_theme, .data.loading_img, .data.splash, .data.store)
@@ -26,4 +36,4 @@ host, t-ads.xiaohongshu.com, reject
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/trending\? url jsonjq-response-body .data.queries = [] | .data.hint_word = {}
 ^https?:\/\/(so|edith)\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes\? url jsonjq-response-body .data.items? |= map(select(.model_type == "note"))
 
-hostname = edith.xiaohongshu.com, www.xiaohongshu.com, so.xiaohongshu.com
+hostname = edith.xiaohongshu.com, www.xiaohongshu.com, so.xiaohongshu.com, gslb.xiaohongshu.com, rec.xiaohongshu.com
