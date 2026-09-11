@@ -1,7 +1,7 @@
 #!name = 小红书
 #!author = 树先生, 奶思
 #!desc = 移除广告
-#!date = 2026-09-09
+#!date = 2026-09-11
 
 host, ads-img-qc.xhscdn.com, reject
 host, ads-video-al.xhscdn.com, reject
@@ -23,6 +23,10 @@ host, t-ads.xiaohongshu.com, reject
 # 广告请求
 ^https:\/\/www\.xiaohongshu\.com\/api\/sns\/v1\/tag\/ads_engage url reject-dict
 ^https:\/\/www\.xiaohongshu\.com\/api\/sns\/v1\/ads\/apple\/record url reject-dict
+# banner
+^https:\/\/edith\.xiaohongshu\.com\/api\/im\/v2\/get_banner_list url reject-dict
+# 用户指引
+^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/guide\/user_guide url reject-dict
 
 # 开屏广告
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/config\? url jsonjq-response-body del(.data.app_theme, .data.loading_img, .data.splash, .data.store)
