@@ -85,7 +85,7 @@ try {
         "activityRecommendation",
         "waterFallFeedTitle",
         "cityCardFeed",
-        "hotelList",
+        //"hotelList",
         "CouponPush"
       ];
 
