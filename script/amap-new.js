@@ -41,6 +41,11 @@ try {
         obj.data.lubanData.toolMapBar = {};
       }
       
+      // 清除底部banner
+      if (obj.data.lubanData.banner?.dataList) {
+        obj.data.lubanData.banner.dataList = [];
+      }
+      
     }
 
     if (obj?.data?.matrixData?.c3DiversionCard?.dataList?.length > 0) {
