@@ -42,6 +42,12 @@ try {
       }
       
     }
+
+    if (obj?.data?.matrixData?.c3DiversionCard?.dataList?.length > 0) {
+      // 附近景点推荐列表
+      obj.data.matrixData.c3DiversionCard.dataList = [];
+    }
+    
   }
 
   // ==================== 2. POI 详情页去广告 ====================
