@@ -1,6 +1,6 @@
 #!name = Spotify
 #!desc = 移除广告,顺序听歌,仅支持新版本(旧版不兼容
-#!author = Auto-001, 001ProMax
+#!author = Auto-001(电报@SOLO灵魂), 001ProMax
 
 ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/pendragon\/ url reject-dict
 ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone url 302 https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad
