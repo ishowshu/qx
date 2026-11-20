@@ -1,10 +1,13 @@
 #!name = Spotify
 #!desc = 移除广告,顺序听歌,仅支持新版本(旧版不兼容
-#!author = Auto-001(电报@SOLO灵魂), 001ProMax
+#!author = Auto-001(电报@SOLO灵魂), 001ProMax, 树先生
 
 ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/pendragon\/ url reject-dict
 ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone url 302 https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad
 ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(?:bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)(?:\?.*)?$ url script-response-body https://raw.githubusercontent.com/Auto-001/QX---/refs/heads/main/spotify-qx.js
 ^https:\/\/(?:spclient\.wg|[\w-]+-spclient)\.spotify\.com(?::443)?\/(?:remote-config-resolver\/v\d+\/configuration|nebula\/v\d+\/configuration\/attributes)(?:\?[^#]*)?$ url script-response-body https://raw.githubusercontent.com/Auto-001/QX---/refs/heads/main/spotify-qx.js
+
+^https:\/\/(?:[\w-]+-)?spclient\.(?:wg\.)?spotify\.com(?::443)?\/browsita\/v1\/browse url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/spotify-browse.js
+^https:\/\/(?:[\w-]+-)?spclient\.(?:wg\.)?spotify\.com(?::443)?\/scrollsita\/v1\/scroll\/ url script-response-body https://github.com/ishowshu/qx/raw/refs/heads/main/script/spotify-scroll.js
 
 hostname = *-spclient.spotify.com, spclient.wg.spotify.com 
